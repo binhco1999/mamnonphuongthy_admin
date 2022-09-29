@@ -63,9 +63,9 @@ export const LeftMenu = () => {
             <Link className='collapse-item' to='/users'>
               Người dùng
             </Link>
-            <a className='collapse-item' href='cards.html'>
-              Cards
-            </a>
+            <Link className='collapse-item' to='/posts'>
+              Bài viết
+            </Link>
           </div>
         </div>
       </li>

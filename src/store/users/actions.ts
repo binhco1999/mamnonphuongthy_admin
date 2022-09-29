@@ -43,7 +43,7 @@ export const loadUsersPaging = (keyword: string, currentPage: number) => {
     } catch (error) {
       dispatch({
         type: LOAD_USERS_PAGING_FAILURE,
-        payload: { error: error.toString() },
+        payload: { error: 'Lỗi không xác định' },
       });
     }
   };
@@ -68,7 +68,7 @@ export const addUser = (user: IAddUserRequest) => {
     } catch (error) {
       dispatch({
         type: ADD_USER_FAILURE,
-        payload: { error: error.toString() },
+        payload: { error: 'Lỗi không xác định' },
       });
       dispatch(alertError('Thêm người dùng thất bại'));
     }
@@ -97,7 +97,7 @@ export const updateUser = (id: string, user: IUpdateUserRequest) => {
     } catch (error) {
       dispatch({
         type: UPDATE_USER_FAILURE,
-        payload: { error: error.toString() },
+        payload: { error: 'Lỗi không xác định' },
       });
       dispatch(alertError('Cập nhật người dùng thất bại'));
     }
@@ -125,7 +125,7 @@ export const getUserById = (id: string) => {
     } catch (error) {
       dispatch({
         type: GET_USER_BY_ID_FAILURE,
-        payload: { error: error.toString() },
+        payload: { error: 'Lỗi không xác định' },
       });
     }
   };
@@ -147,7 +147,7 @@ export const deleteUsers = (userIds: string[]) => {
     } catch (error) {
       dispatch({
         type: DELETE_USERS_FAILURE,
-        payload: { error: error.toString() },
+        payload: { error: 'Lỗi không xác định' },
       });
     }
   };

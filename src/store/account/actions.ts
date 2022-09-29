@@ -31,7 +31,7 @@ export const login = (email: string, password: string) => {
     } catch (error) {
       dispatch({
         type: LOGIN_FAILURE,
-        payload: { error: error.toString() },
+        payload: { error: 'Lỗi không xác định' },
       });
     }
   };
@@ -55,7 +55,7 @@ export const getCurrentLoginUser = () => {
     } catch (error) {
       dispatch({
         type: LOAD_CURRENT_LOGIN_USER_FAILURE,
-        payload: { error: error.toString() },
+        payload: { error: 'Lỗi không xác định' },
       });
     }
   };

@@ -3,12 +3,15 @@ import { Route, Switch } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AddUser } from '../Admin/Users/AddUser';
+import { AddPost } from '../Admin/Posts/AddPost';
 import { AppState } from '../../store';
 import { EditUser } from './Users/EditUser';
+import { EditPost } from './Posts/EditPost';
 import { Home } from './Home/Home';
 import { LeftMenu } from './LeftMenu/LeftMenu';
 import { TopBar } from './TopBar/TopBar';
 import { Users } from './Users/Users';
+import { Posts } from './Posts/Posts';
 import { getCurrentLoginUser } from '../../store/account/actions';
 
 export const Admin = () => {
@@ -32,6 +35,15 @@ export const Admin = () => {
               <div className={`alert ${alert.type}`}>{alert.message}</div>
             )}
             <Switch>
+              <Route path='/posts'>
+                <Posts />
+              </Route>
+              <Route path='/post-add'>
+                <AddPost />
+              </Route>
+              <Route path='/post-edit/:id'>
+                <EditPost />
+              </Route>
               <Route path='/users'>
                 <Users />
               </Route>
