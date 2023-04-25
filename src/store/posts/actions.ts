@@ -17,15 +17,15 @@ import {
   UPDATE_POST_REQUEST,
   UPDATE_POST_SUCCESS,
   PostsActionTypes,
-} from './types';
-import { AnyAction, Dispatch } from 'redux';
-import { alertError, alertSuccess, clearAlert } from '../alert/actions';
+} from "./types";
+import { AnyAction, Dispatch } from "redux";
+import { alertError, alertSuccess, clearAlert } from "../alert/actions";
 
-import { AlertActionTypes } from './../alert/types';
-import { ThunkDispatch } from 'redux-thunk';
-import { UrlConstants } from '../../constants';
-import { history } from '../../helpers';
-import { postService } from '../../services';
+import { AlertActionTypes } from "./../alert/types";
+import { ThunkDispatch } from "redux-thunk";
+import { UrlConstants } from "../../constants";
+import { history } from "../../helpers";
+import { postService } from "../../services";
 
 export const loadPostsPaging = (keyword: string, currentPage: number) => {
   return async (dispatch: Dispatch<PostsActionTypes>) => {
@@ -43,13 +43,13 @@ export const loadPostsPaging = (keyword: string, currentPage: number) => {
     } catch (error) {
       dispatch({
         type: LOAD_POSTS_PAGING_FAILURE,
-        payload: { error: 'Lỗi không xác định' },
+        payload: { error: "Lỗi không xác định" },
       });
     }
   };
 };
 
-export const addPost = (user: string,post: IAddPostRequest) => {
+export const addPost = (user: string, post: IAddPostRequest) => {
   return async (dispatch: Dispatch<PostsActionTypes | AlertActionTypes>) => {
     try {
       dispatch({
@@ -62,15 +62,15 @@ export const addPost = (user: string,post: IAddPostRequest) => {
         type: ADD_POST_SUCCESS,
       });
 
-      dispatch(alertSuccess('Thêm bài viết thành công'));
+      dispatch(alertSuccess("Thêm bài viết thành công"));
 
       history.push(UrlConstants.POSTS_LIST);
     } catch (error) {
       dispatch({
         type: ADD_POST_FAILURE,
-        payload: { error: 'Lỗi không xác định' },
+        payload: { error: "Lỗi không xác định" },
       });
-      dispatch(alertError('Thêm bài viết thất bại'));
+      dispatch(alertError("Thêm bài viết thất bại"));
     }
     setTimeout(() => {
       dispatch(clearAlert());
@@ -91,15 +91,15 @@ export const updatePost = (id: string, post: IUpdatePostRequest) => {
         type: UPDATE_POST_SUCCESS,
       });
 
-      dispatch(alertSuccess('Cập nhật bài viết thành công'));
+      dispatch(alertSuccess("Cập nhật bài viết thành công"));
 
       history.push(UrlConstants.POSTS_LIST);
     } catch (error) {
       dispatch({
         type: UPDATE_POST_FAILURE,
-        payload: { error: 'Lỗi không xác định' },
+        payload: { error: "Lỗi không xác định" },
       });
-      dispatch(alertError('Cập nhật bài viết thất bại'));
+      dispatch(alertError("Cập nhật bài viết thất bại"));
     }
     setTimeout(() => {
       dispatch(clearAlert());
@@ -125,7 +125,7 @@ export const getPostById = (id: string) => {
     } catch (error) {
       dispatch({
         type: GET_POST_BY_ID_FAILURE,
-        payload: { error: 'Lỗi không xác định' },
+        payload: { error: "Lỗi không xác định" },
       });
     }
   };
@@ -143,11 +143,11 @@ export const deletePosts = (postIds: string[]) => {
       dispatch({
         type: DELETE_POSTS_SUCCESS,
       });
-      dispatch(loadPostsPaging('', 1));
+      dispatch(loadPostsPaging("", 1));
     } catch (error) {
       dispatch({
         type: DELETE_POSTS_FAILURE,
-        payload: { error: 'Lỗi không xác định' },
+        payload: { error: "Lỗi không xác định" },
       });
     }
   };
